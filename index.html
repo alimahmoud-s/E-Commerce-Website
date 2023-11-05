@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/skitter.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar  navbar-expand-lg fixed-top bg-gradient bg-light  ">
+            <div class="container">
+                <a class="navbar-brand" href="#">Navbar</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <a class="nav-link d-none" id="cart" href="#">Cart<span id="count" class="text-danger"></a>
+                        <a class="nav-link" id="login" href="#">logIn</a>
+                        <a class="nav-link" id="signUp" href="#">SignUp</a>
+                        <a class="nav-link" id="logOut" href="#">logout</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <div id="bodyContainer" class="position-relative pt-4 top-0 start-0 bottom-0 end-0 vh-100 w-100 ">
+        <section id="displayTable"
+            class="pt-5 mt-4 bg-black d-none  bg-opacity-50 lightbox-container h-100 position-fixed bottom-0 end-0  top-0 start-0 w-100 ">
+
+            <div class="container h-100 position-relative">
+                <i id="closeBtn" class="fa-regular fa-circle-xmark fa-xl pt-4   position-absolute top-0 strat-0   "></i>
+                <div id="cartTable" class="row g-2 bg-white  h-100 rounded-3 p-3 px-4 position-relative">
+
+                </div>
+
+            </div>
+
+        </section>
+        <section id="lightBox"
+            class="bg-black d-none bg-opacity-50 lightbox-container h-100 position-fixed bottom-0 end-0  top-0 start-0 w-100  ">
+            <div class=" container h-100 pt-4 mt-4  ">
+                <div class="row mt-3   m-auto mt-4 rounded-4 ">
+
+                    <div class="col-lg-12 col-sm-12 overflow-hidden rounded-4  ">
+
+                        <div class=" bg-white  w-100  rounded-5 d-flex shadow-lg justify-content-center ">
+                            <div class="img w-50 m-3  align-self-center">
+                                <img src="" class="card-img imgs img-fluid  rounded-5 shadow-lg " alt="...">
+                            </div>
+                            <div class="card-body shadow-lg w-50 align-self-center p-3 rounded-4">
+                                <h6 class="card-title h6  "></h6>
+                                <p class="card-text  my-md-2 overflow-hidden"></p>
+                                <p class="card-cat my-md-2">
+                                </p>
+                                <p class="card-prc h6 "></p>
+
+                            </div>
+                            <i id="close" class="fa-regular fa-circle-xmark fa-xl pt-4 me-3 "></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="loginBox"
+            class="bg-info-subtle  bg-opacity-10  pt-5 lightbox-container h-100 position-fixed bottom-0 end-0  top-0 start-0 w-100  ">
+            <div class="container-fluid m-0 p-0 h-100">
+                <div class="row h-100 p-0 m-0 position-relative">
+                    <div class="col-12 d-flex p-0 m-0 ">
+                        <div
+                            class="  p-0 m-0  blueSide w-50 h-100 d-flex align-items-center text-white position-relative  ">
+                            <!-- <img src="img/5431981.jpg " class="position-absolute opacity-25  bgred w-100 h-100"> -->
+                            <div class="px-5 p-0 position-absolute top-0  ">
+                                <h3 class="h1 text-black-50 pt-5 py-2 ">let's Start Signup !</h3>
+                                <p class="text-black-50 lead">It's Easy and Will Take Less Than 3 Seconds </p>
+                            </div>
+                        </div>
+                        <div class="whitebg p-0 m-0  w-50 opacity-0">
+
+                        </div>
+                    </div>
+                    <section id="signupPage"
+                        class=" col-lg-6 d-none
+                        col-sm-8 py-3 bg-opacity-50 bg-light position-absolute top-50 start-50 translate-middle rounded-4 shadow-lg">
+                        <div class="title py-2 text-center">
+                            <h4 id="title">SIGNUP</h4>
+                            <div class="brdr my-2 bg-info m-auto w-25 border-1 border-top border-info">
+                            </div>
+                        </div>
+                        <form class="text-center">
+                            <input id="name" type="text" class="form-control bg-transparent  py-2 m-auto text-center w-75 my-2
+                          border-top-0 border-start-0 border-end-0  rounded-1
+                        " placeholder="Please Enter Your Name">
+
+                            <input type="email" class="form-control bg-transparent  py-2 m-auto text-center w-75 my-2
+                          border-top-0 border-start-0 border-end-0  rounded-1" autocomplete="current-email" id="email"
+                                aria-describedby="emailHelpId" placeholder="abc@mail.com">
+                            <span id="errEmail" class="text-danger d-none ">email already exist</span>
+                            <input type="password"
+                                class="form-control bg-transparent is py-2 m-auto text-center w-75 my-2 border-top-0 border-start-0 border-end-0 rounded-1"
+                                id="password" placeholder="password" autocomplete="current-password">
+
+                            <button id="signupBtn" class="btn m-3 btn-lg btn-lg ">SignUp</button>
+
+                        </form>
+                        <div id="singupSuc" class="text-center singupSucc d-none text-success m-auto">your signup is
+                            success please <a href="#" id="singupSucc" class="link-success">login</a></div>
+                    </section>
+                    <section id="loginPage"
+                        class="col-lg-6 col-sm-8 py-3 bg-opacity-50 bg-light position-absolute top-50 start-50 translate-middle rounded-4 shadow-lg">
+                        <div class="title py-2 text-center">
+                            <h4 id="title">LOGIN</h4>
+                            <div class="brdr my-2 bg-info m-auto w-25 border-1 border-top border-info"></div>
+                        </div>
+                        <form class="text-center">
+                            <input type="text" class="form-control bg-transparent py-2 m-auto text-center w-75 my-2
+                      border-top-0 border-start-0 border-end-0 rounded-1" id="loginEmail"
+                                aria-describedby="emailHelpId" placeholder="email">
+                            <input type="password" class="form-control bg-transparent py-2 m-auto text-center w-75 my-2
+                      border-top-0 border-start-0 border-end-0 rounded-1" id="loginPassword" placeholder="password">
+                            <button id="loginBtn" class="btn m-3 btn-lg btn-lg disabled">LOGIN</button>
+                        </form>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="carousel">
+            <div class="container my-5">
+                <div class="row gx-0 ">
+                    <div class="col-sm-8 mx-auto p-0  rounded-3 " id="carouselCont">
+                        <div class="w-100   ">
+                            <div class="skitter skitter-large rounded-2 mx-0 p-0">
+                                <ul id="ulContainer"></ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="slider">
+            <div class="container p-4 shadow rounded-4 bg-info-subtle  ">
+                <div id="ulContainer" class="owl-carousel owl-theme">
+
+
+                </div>
+            </div>
+
+        </section>
+
+        <section id="products">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-lg-10 mx-auto pb-sm-2 pb-lg-3 d-flex">
+                        <ul class="nav nav-underline">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                                    aria-expanded="false">Category</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item">products</li>
+                                    <li class="dropdown-item">electronics </li>
+                                    <li class="dropdown-item">jewelery</li>
+                                    <li class="dropdown-item">men's clothing</li>
+                                    <li class="dropdown-item">women's clothing</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="d-flex w-100 ">
+                            <div class="d-flex mx-auto"><input id="searchInput" class="form-control "
+                                    placeholder="Search">
+                                <button id="searchBtn" class="btn btn-outline-success">Search</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="container">
+                <div id="productsCon" class="row gy-4 gx-md-3">
+
+                </div>
+        </section>
+
+        <div class="container my-5">
+
+            <footer class="bg-light text-center text-white">
+                <!-- Grid container -->
+                <div class="container p-4 pb-0">
+                    <!-- Section: Social media -->
+                    <section class="mb-4">
+                        <!-- Facebook -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #3b5998;" href="#!"
+                            role="button"><i class="fab fa-facebook-f"></i></a>
+
+                        <!-- Twitter -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #55acee;" href="#!"
+                            role="button"><i class="fab fa-twitter"></i></a>
+
+                        <!-- Google -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39;" href="#!"
+                            role="button"><i class="fab fa-google"></i></a>
+
+                        <!-- Instagram -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #ac2bac;" href="#!"
+                            role="button"><i class="fab fa-instagram"></i></a>
+
+                        <!-- Linkedin -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #0082ca;" href="#!"
+                            role="button"><i class="fab fa-linkedin-in"></i></a>
+                        <!-- Github -->
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #333333;" href="#!"
+                            role="button"><i class="fab fa-github"></i></a>
+                    </section>
+                    <!-- Section: Social media -->
+                </div>
+                <!-- Grid container -->
+
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2020 Copyright:
+                    <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+
+        </div>
+
+
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.skitter.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
