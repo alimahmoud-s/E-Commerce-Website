@@ -41,8 +41,6 @@ async function displayData(productDataFromApiPar) {
   addBtns();
 }
 
-
-
 function carddisplay() {
   const imgs = Array.from(document.querySelectorAll(".card"));
   const lightboxContainer = document.querySelector("#lightBox");
@@ -244,7 +242,8 @@ function navSignUp() {
   loginPage.classList.add("d-none");
   signup.classList.add("active");
   login.classList.remove("active");
-  $("#loginBox").removeClass("d-none")}
+  $("#loginBox").removeClass("d-none");
+}
 
 login.addEventListener("click", function () {
   signupPage.classList.add("d-none");
