@@ -41,6 +41,8 @@ async function displayData(productDataFromApiPar) {
   addBtns();
 }
 
+
+
 function carddisplay() {
   const imgs = Array.from(document.querySelectorAll(".card"));
   const lightboxContainer = document.querySelector("#lightBox");
@@ -232,13 +234,18 @@ if (!loginBox.classList.contains("d-none")) {
   $("body").addClass("overflow-hidden");
 }
 
-signup.addEventListener("click", function () {
+signup.addEventListener("click", navSignUp);
+$("#GoToSignUp").click(() => {
+  navSignUp();
+  console.log("hello");
+});
+function navSignUp() {
   signupPage.classList.remove("d-none");
   loginPage.classList.add("d-none");
   signup.classList.add("active");
   login.classList.remove("active");
-  $("#loginBox").removeClass("d-none");
-});
+  $("#loginBox").removeClass("d-none")}
+
 login.addEventListener("click", function () {
   signupPage.classList.add("d-none");
   loginPage.classList.remove("d-none");
