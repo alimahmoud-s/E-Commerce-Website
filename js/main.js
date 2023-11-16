@@ -233,7 +233,8 @@ if (!loginBox.classList.contains("d-none")) {
 }
 
 signup.addEventListener("click", navSignUp);
-$("#GoToSignUp").click(() => {
+$("#GoToSignUp").click((e) => {
+ e.preventDefault();
   navSignUp();
   console.log("hello");
 });
@@ -243,7 +244,16 @@ function navSignUp() {
   signup.classList.add("active");
   login.classList.remove("active");
   $("#loginBox").removeClass("d-none");
+  signupBtn.classList.add("disabled");
 }
+
+password.addEventListener("input",()=>{
+  if (fName.length < 3 || email.length < 3 || password.length< 3) {
+    signupBtn.classList.add("disabled");
+  } else {
+    signupBtn.classList.remove("disabled");
+  }
+})
 
 login.addEventListener("click", function () {
   signupPage.classList.add("d-none");
