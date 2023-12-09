@@ -356,7 +356,7 @@ async function loginFun() {
     loginEmail.classList.add("is-invalid");
     loginEmail.classList.remove("is-valid");
   }
-  accLogIn;
+ 
 }
 
 signupBtn.addEventListener("click", async function signup() {
@@ -392,22 +392,84 @@ loginBtn.addEventListener("click", function () {
   }
 });
 
-function accLogIn() {
-  {
-    loginBtn.classList.remove("disabled");
-    loginBtn.addEventListener("click", function () {
-      loginBox.classList.add("d-none");
-      login.classList.add("d-none");
-      signup.classList.add("d-none");
-      $("body").removeClass("overflow-hidden");
-      $("#logOut").removeClass("d-none");
-      $("#cart").removeClass("d-none");
-      $("#count").append(
-        `<small>  ${usersArr[userId].products.length}</small>`
-      );
-    });
+loginBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  for (let i = 0; i < usersArr.length; i++) {
+    if (
+      usersArr[i].userEmail === loginEmail.value &&
+      usersArr[i].userPassword === loginPassword.value
+    ) {
+      localStorage.setItem("usertoken", usersArr[i].id); // Add the user ID to session storage
+      accLogIn();
+      console.log('hello');
+      break;
+    }
   }
+});
+
+function accLogIn() {
+  loginBtn.classList.remove("disabled");
+  loginBtn.addEventListener("click", function () {
+    loginBox.classList.add("d-none");
+    login.classList.add("d-none");
+    signup.classList.add("d-none");
+    $("body").removeClass("overflow-hidden");
+    $("#logOut").removeClass("d-none");
+    $("#cart").removeClass("d-none");
+    $("#count")
+      .empty()
+      .append(`<small>  ${usersArr[userId].products.length}</small>`);
+       
+  });
+
+  // Check if a user is logged in and hide the login page
 }
+
+// function IfUserHaveToken(){
+//   const loggedInUserId = sessionStorage.getItem("userId");
+//   if (loggedInUserId !== null) {
+//       loginBox.classList.add("d-none");
+//     loginPage.classList.add("d-none");
+//     signupPage.classList.add("d-none");
+//     $("#logOut").removeClass("d-none");
+//     $("#cart").removeClass("d-none");
+//     $("#count")
+//       .empty()
+//       .append(`<small>  ${usersArr[loggedInUserId].products.length}</small>`);
+//   }
+// }
+// IfUserHaveToken()
+
+
+// function IfUserHaveToken() {
+//   const userToken = localStorage.getItem("token");
+
+//   if (userToken !== null) {
+//     loginBox.classList.add("d-none");
+//     loginPage.classList.add("d-none");
+//     signupPage.classList.add("d-none");
+//     $("#logOut").removeClass("d-none");
+//     $("#cart").removeClass("d-none");
+    
+//     // Assuming you have a global variable usersArr
+//     // const loggedInUserId = findUserIdByToken(userToken);
+    
+//     // if (loggedInUserId !== null) {
+//     //   $("#count").empty().append(`<small>  ${usersArr[loggedInUserId].products.length}</small>`);
+//     // }
+//   }
+// }
+
+// // Assuming you have a function to find the user ID by token in your usersArr
+// function findUserIdByToken(token) {
+//   for (let i = 0; i < usersArr.length; i++) {
+//     if (usersArr[i].token === token) {
+//       return i;
+//     }
+//   }
+//   return null; // Return null if the token is not found
+// }
 
 function clearinput() {
   let inputs = document.querySelectorAll("input");
@@ -424,14 +486,15 @@ $("#logOut").click(() => {
   login.classList.remove("d-none");
   $("#logOut").addClass("d-none");
   $("#cart").addClass("d-none");
-  sessionStorage.clear();
+  sessionStorage.removeItem("userId");
+;
 });
 // Check if the "username" key is present in session storage and is not an empty string
 $(document).ready(function () {
   // Check if the "user" key is not in session storage or is an empty string
   if (
-    !sessionStorage.getItem("user") ||
-    sessionStorage.getItem("user") === ""
+    !sessionStorage.getItem("userId") ||
+    sessionStorage.getItem("userId") === ""
   ) {
     // Hide the element with the id "logOut"
     $("#logOut").addClass("d-none");
@@ -441,7 +504,8 @@ $(document).ready(function () {
 // Add an event listener to the window for the 'beforeunload' event
 window.addEventListener("beforeunload", function (event) {
   // Clear the session storage when the tab or browser is closed
-  sessionStorage.clear();
+  sessionStorage.removeItem("userId");
+;
 });
 
 //this for session storage to get user id fro local storage
@@ -590,3 +654,4 @@ function deleProduct() {
     });
   }
 }
+
